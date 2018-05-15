@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>ProductServlet</servlet-name>
+        <servlet-class>edu.metrostate.ics425.jwm936.prodmaint.controller.ProductServlet</servlet-class>
+        <init-param>
+            <param-name>catalogPath</param-name>
+            <param-value>/catalog/catalog.dat</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductServlet</servlet-name>
+        <url-pattern>/addProduct</url-pattern>
+        <url-pattern>/products</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>products</welcome-file>
+    </welcome-file-list>
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/error.html</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error.html</location>
+    </error-page>
+    <resource-ref>
+        <description>jdbc:mysql://localhost:3306/mysql?zeroDateTimeBehavior=convertToNull</description>
+        <res-ref-name>ProductDB</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+        <res-sharing-scope>Shareable</res-sharing-scope>
+    </resource-ref>
+    <resource-ref>
+        <description>jdbc:mysql://localhost:3306/mysql?zeroDateTimeBehavior=convertToNull</description>
+        <res-ref-name>ProdMaint</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+        <res-sharing-scope>Shareable</res-sharing-scope>
+    </resource-ref>
+</web-app>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/P4_jwm936_ProductMaint">
+  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="20" maxIdle="10" maxWait="-1" name="ProdMaint" password="hello" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/mysql?zeroDateTimeBehavior=convertToNull" username="root"/>
+  <ResourceLink global="ProdMaint" name="ProductDB" type="javax.sql.DataSource"/>
+</Context>
